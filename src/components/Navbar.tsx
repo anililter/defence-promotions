@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "Felsefemiz", href: "/felsefemiz" },
@@ -32,19 +33,22 @@ export default function Navbar() {
         <div className="container-site">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex flex-col leading-none group">
-              <span
-                className="text-ivory text-2xl font-display font-light tracking-[0.15em] uppercase"
-                style={{ fontFamily: "var(--font-cormorant)" }}
-              >
-                Defence
-              </span>
-              <span
-                className="text-gold text-xs font-body font-semibold tracking-[0.3em] uppercase"
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                Athletics
-              </span>
+            <Link href="/" className="flex items-center gap-3 group">
+              <Logo className="w-12 h-12 text-ivory group-hover:text-gold transition-colors duration-300" />
+              <div className="flex flex-col leading-none">
+                <span
+                  className="text-ivory text-xl font-display font-light tracking-[0.15em] uppercase transition-colors duration-300 group-hover:text-ivory"
+                  style={{ fontFamily: "var(--font-cormorant)" }}
+                >
+                  Defence
+                </span>
+                <span
+                  className="text-gold text-[10px] font-body font-semibold tracking-[0.3em] uppercase"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Athletics
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}

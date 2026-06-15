@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { useState } from "react";
+import Logo from "./Logo";
 
 
 // SVG brand icons (lucide-react removed brand icons in v1+)
@@ -75,19 +76,22 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-4">
-            <Link href="/" className="flex flex-col leading-none mb-6">
-              <span
-                className="text-ivory text-3xl font-display font-light tracking-[0.15em] uppercase"
-                style={{ fontFamily: "var(--font-cormorant)" }}
-              >
-                Defence
-              </span>
-              <span
-                className="text-gold text-[11px] font-body font-semibold tracking-[0.35em] uppercase"
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                Athletics
-              </span>
+            <Link href="/" className="flex items-center gap-3 mb-6 group">
+              <Logo className="w-14 h-14 text-ivory group-hover:text-gold transition-colors duration-300" />
+              <div className="flex flex-col leading-none">
+                <span
+                  className="text-ivory text-2xl font-display font-light tracking-[0.15em] uppercase transition-colors duration-300 group-hover:text-ivory"
+                  style={{ fontFamily: "var(--font-cormorant)" }}
+                >
+                  Defence
+                </span>
+                <span
+                  className="text-gold text-[10px] font-body font-semibold tracking-[0.3em] uppercase"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Athletics
+                </span>
+              </div>
             </Link>
 
             <p
