@@ -29,24 +29,24 @@ const YoutubeIcon = () => (
 
 const footerLinks = {
   services: [
-    { label: "Boks", href: "#branslar" },
-    { label: "CrossFit", href: "#branslar" },
-    { label: "Pilates", href: "#branslar" },
-    { label: "Mobilite", href: "#branslar" },
-    { label: "Kondisyon", href: "#branslar" },
+    { label: "Boks", href: "/branslar/boks" },
+    { label: "CrossFit", href: "/branslar/crossfit" },
+    { label: "Pilates", href: "/branslar/pilates" },
+    { label: "Mobilite", href: "/branslar/mobilite" },
+    { label: "Kondisyon", href: "/branslar/kondisyon" },
   ],
   branches: [
-    { label: "Beşiktaş", href: "#subeler" },
-    { label: "Kadıköy", href: "#subeler" },
-    { label: "Levent", href: "#subeler" },
-    { label: "Dubai Marina", href: "#subeler" },
+    { label: "Beşiktaş", href: "/subeler/besiktas" },
+    { label: "Kadıköy", href: "/subeler/kadikoy" },
+    { label: "Levent", href: "/subeler/levent" },
+    { label: "Dubai Marina", href: "/subeler/dubai" },
   ],
   company: [
-    { label: "Felsefemiz", href: "#felsefe" },
-    { label: "Antrenörlerimiz", href: "#" },
-    { label: "Üyelik Seçenekleri", href: "#iletisim" },
-    { label: "Kurumsal", href: "#" },
-    { label: "KVKK & Gizlilik", href: "#" },
+    { label: "Felsefemiz", href: "/felsefemiz" },
+    { label: "Antrenörlerimiz", href: "/felsefemiz#antrenorler" },
+    { label: "Üyelik Seçenekleri", href: "/iletisim#uyelik" },
+    { label: "Kurumsal", href: "/felsefemiz#kurumsal" },
+    { label: "KVKK & Gizlilik", href: "/iletisim#kvkk" },
   ],
 };
 
@@ -125,13 +125,13 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-ivory/40 text-sm font-body hover:text-ivory transition-colors duration-200"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -148,13 +148,13 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.branches.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-ivory/40 text-sm font-body hover:text-ivory transition-colors duration-200"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -171,13 +171,13 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-ivory/40 text-sm font-body hover:text-ivory transition-colors duration-200"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

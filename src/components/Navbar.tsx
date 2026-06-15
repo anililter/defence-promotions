@@ -5,11 +5,11 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Felsefemiz", href: "#felsefe" },
-  { label: "Branşlar", href: "#branslar" },
-  { label: "Şubeler", href: "#subeler" },
-  { label: "Yorumlar", href: "#yorumlar" },
-  { label: "İletişim", href: "#iletisim" },
+  { label: "Felsefemiz", href: "/felsefemiz" },
+  { label: "Branşlar", href: "/branslar" },
+  { label: "Şubeler", href: "/subeler" },
+  { label: "Yorumlar", href: "/#yorumlar" },
+  { label: "İletişim", href: "/iletisim" },
 ];
 
 export default function Navbar() {
@@ -50,26 +50,26 @@ export default function Navbar() {
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   className="text-ivory/70 hover:text-ivory text-[13px] font-body font-medium tracking-[0.12em] uppercase transition-colors duration-200"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
             {/* CTA + Mobile Toggle */}
             <div className="flex items-center gap-4">
-              <a
-                href="#iletisim"
+              <Link
+                href="/iletisim"
                 className="hidden lg:block btn-gold text-[11px] py-3 px-6"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 Seans Ayarla
-              </a>
+              </Link>
               <button
                 id="mobile-menu-btn"
                 className="lg:hidden text-ivory p-2"
@@ -98,7 +98,7 @@ export default function Navbar() {
           <X size={28} />
         </button>
         {navLinks.map((link, i) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             onClick={() => setMobileOpen(false)}
@@ -109,15 +109,15 @@ export default function Navbar() {
             }}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
-        <a
-          href="#iletisim"
+        <Link
+          href="/iletisim"
           onClick={() => setMobileOpen(false)}
           className="btn-gold mt-4"
         >
           Seans Ayarla
-        </a>
+        </Link>
       </div>
     </>
   );

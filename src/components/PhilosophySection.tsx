@@ -66,7 +66,7 @@ export default function PhilosophySection() {
                 className="text-muted text-lg leading-relaxed"
                 style={{ fontFamily: "var(--font-inter)", color: "var(--color-text-muted)" }}
               >
-                Defence Athletics'te her bir antrenman seansı, yalnızca fiziksel bir egzersizden çok daha fazlasını temsil eder. Uzman kadromuz eşliğinde geliştirilen kişisel programlar, sizi limitlerinizdeki gerçek potansiyelinizle buluşturur.
+                Defence Athletics&apos;te her bir antrenman seansı, yalnızca fiziksel bir egzersizden çok daha fazlasını temsil eder. Uzman kadromuz eşliğinde geliştirilen kişisel programlar, sizi limitlerinizdeki gerçek potansiyelinizle buluşturur.
               </p>
               <p
                 className="text-muted text-lg leading-relaxed"
