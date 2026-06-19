@@ -91,7 +91,7 @@ export async function ensureInit(): Promise<void> {
       ],
     });
 
-    const eventId = eventRes.lastInsertRowid;
+    const eventId = Number(eventRes.lastInsertRowid);
 
     await db.batch([
       {
@@ -217,7 +217,7 @@ export async function updateEvent(id: number, data: Record<string, unknown>) {
   const keys = Object.keys(data);
   if (keys.length === 0) return { changes: 0 };
   const setClause = keys.map(k => `${k} = ?`).join(', ');
-  const args = [...Object.values(data), id];
+  const args = [...Object.values(data), id] as any[];
   const res = await getDb().execute({ sql: `UPDATE events SET ${setClause} WHERE id = ?`, args });
   return { changes: res.rowsAffected };
 }
@@ -275,7 +275,7 @@ export async function updateFight(id: number, data: Record<string, unknown>) {
     processedData.is_main_event = processedData.is_main_event ? 1 : 0;
   }
   const setClause = keys.map(k => `${k} = ?`).join(', ');
-  const args = [...Object.values(processedData), id];
+  const args = [...Object.values(processedData), id] as any[];
   await getDb().execute({ sql: `UPDATE fights SET ${setClause} WHERE id = ?`, args });
 }
 
