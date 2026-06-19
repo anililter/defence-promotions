@@ -5,8 +5,8 @@ import type { Event } from '@/lib/types';
 export const dynamic = 'force-dynamic';
 
 export default async function EventsPage() {
-  const upcomingEvents = await getAllEvents('upcoming') as Event[];
-  const pastEvents = await getAllEvents('past') as Event[];
+  const upcomingEvents = await getAllEvents('upcoming') as unknown as Event[];
+  const pastEvents = await getAllEvents('past') as unknown as Event[];
 
   return (
     <div className="min-h-screen bg-black pt-24 pb-20">

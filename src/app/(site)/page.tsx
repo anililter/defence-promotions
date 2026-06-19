@@ -7,10 +7,10 @@ import Image from 'next/image';
 export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
-  const upcomingEvents = await getAllEvents('upcoming') as Event[];
-  const allEvents = await getAllEvents() as Event[];
+  const upcomingEvents = await getAllEvents('upcoming') as unknown as Event[];
+  const allEvents = await getAllEvents() as unknown as Event[];
   const featuredEvent = upcomingEvents[0] || allEvents[0] || null;
-  const featuredFights = featuredEvent ? await getFightsByEventId(featuredEvent.id) as Fight[] : [];
+  const featuredFights = featuredEvent ? await getFightsByEventId(featuredEvent.id) as unknown as Fight[] : [];
   const mainFight = featuredFights.find(f => f.is_main_event) || featuredFights[0] || null;
 
   const otherEvents = allEvents.filter(e => e.id !== featuredEvent?.id).slice(0, 6);

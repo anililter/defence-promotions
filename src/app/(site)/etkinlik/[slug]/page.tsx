@@ -18,10 +18,10 @@ function formatTime(dateStr: string | null) {
 
 export default async function EventDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const event = await getEventBySlug(slug) as Event | null;
+  const event = await getEventBySlug(slug) as unknown as Event | null;
   if (!event) notFound();
 
-  const fights = await getFightsByEventId(event.id) as Fight[];
+  const fights = await getFightsByEventId(event.id) as unknown as Fight[];
   const mainEvent = fights.find(f => f.is_main_event);
   const undercard = fights.filter(f => !f.is_main_event);
 
