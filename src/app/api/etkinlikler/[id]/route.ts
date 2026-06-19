@@ -6,10 +6,8 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const event = getEventById(Number(id));
-  if (!event) {
-    return Response.json({ error: 'Etkinlik bulunamadı.' }, { status: 404 });
-  }
+  const event = await getEventById(Number(id));
+  if (!event) return Response.json({ error: 'Etkinlik bulunamadı.' }, { status: 404 });
   return Response.json({ event });
 }
 
@@ -23,10 +21,8 @@ export async function PUT(
   const { id } = await params;
   try {
     const body = await request.json();
-    const result = updateEvent(Number(id), body);
-    if (result.changes === 0) {
-      return Response.json({ error: 'Etkinlik bulunamadı.' }, { status: 404 });
-    }
+    const result = await updateEvent(Number(id), body);
+    if (result.changes === 0) return Response.json({ error: 'Etkinlik bulunamadı.' }, { status: 404 });
     return Response.json({ success: true });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : 'Sunucu hatası.';
@@ -42,9 +38,7 @@ export async function DELETE(
   if (!user) return Response.json({ error: 'Unauthorized' }, { status: 401 });
 
   const { id } = await params;
-  const result = deleteEvent(Number(id));
-  if (result.changes === 0) {
-    return Response.json({ error: 'Etkinlik bulunamadı.' }, { status: 404 });
-  }
+  const result = await deleteEvent(Number(id));
+  if (result.changes === 0) return Response.json({ error: 'Etkinlik bulunamadı.' }, { status: 404 });
   return Response.json({ success: true });
 }

@@ -11,7 +11,7 @@ export async function PUT(
   const { id } = await params;
   try {
     const body = await request.json();
-    updateFight(Number(id), body);
+    await updateFight(Number(id), body);
     return Response.json({ success: true });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : 'Sunucu hatası.';
@@ -27,9 +27,7 @@ export async function DELETE(
   if (!user) return Response.json({ error: 'Unauthorized' }, { status: 401 });
 
   const { id } = await params;
-  const result = deleteFight(Number(id));
-  if (result.changes === 0) {
-    return Response.json({ error: 'Maç bulunamadı.' }, { status: 404 });
-  }
+  const result = await deleteFight(Number(id));
+  if (result.changes === 0) return Response.json({ error: 'Maç bulunamadı.' }, { status: 404 });
   return Response.json({ success: true });
 }
