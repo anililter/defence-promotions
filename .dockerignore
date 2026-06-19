@@ -1,0 +1,10 @@
+.git
+.gitignore
+.next
+node_modules
+database/
+public/uploads/
+*.md
+.DS_Store
+.env*
+defenceathletics/
